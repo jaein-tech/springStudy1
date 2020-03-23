@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- ApplicationContext(스프링 설정파일)분리하기 3번째 파일, 각종 정보 모음파일 -->
+
+	<bean id="informationService" class="ems.member.service.EMSInformationService">
+		<property name="info">
+			<value>Practice program in 2020</value>
+		</property>
+		<property name="copyRight">
+			<value>COPYRIGHT lalala</value>
+		</property>
+		<property name="ver">
+			<value>1.0 Version</value>
+		</property>
+		<property name="sYear">
+			<value>2020</value>
+		</property>
+		<property name="sMonth">
+			<value>3</value>
+		</property>
+		<property name="sDay">
+			<value>20</value>
+		</property>
+		
+		<!-- 위에처럼 사용하지 않고 아래처럼 사용해도 괜찮다. -->
+		<property name="eYear" value="2020"></property>
+		<property name="eMonth" value="3"></property>
+		<property name="eDay" value="21"></property>
+		
+		<!-- List를 넣는법 -->
+		<property name="developers">
+			<list>
+				<value>Joo</value>
+				<value>Jae</value>
+				<value>In</value>
+			</list>
+		</property>
+		
+		<!-- Map타입을 넣는법 <key>태그와 <value>태그 사용-->
+		<property name="administrators">
+			<map>
+				<entry>
+					<key>
+						<value>Jaein</value>
+					</key>
+					<value>jaein@g.com</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Joojaein</value>
+					</key>
+					<value>joojaein@a.com</value>
+				</entry>
+			</map>
+		</property>
+		
+		<!-- Map타입 다른 Bean객체 참조 -->
+		<property name="dbInfos">
+			<map>
+				<entry>
+					<key>
+						<value>dev</value>
+					</key>
+					<ref bean="dataBaseConnectionInfoDev"/>
+				</entry>
+				<entry>
+					<key>
+						<value>real</value>
+					</key>
+					<ref bean="dataBaseConnectionInfoReal"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+</beans>

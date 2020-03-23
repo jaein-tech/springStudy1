@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 		
+ 	
+ 	<!-- ApplicationContext(스프링 설정파일)분리하기 2번째 파일, 데이터 베이스와 연결하는 부분 분리 -->
+
+	<bean id="dataBaseConnectionInfoDev" class="ems.member.DataBaseConnectionInfo">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="userId" value="aaa" />
+		<property name="userPw" value="bbb" />
+	</bean>
+
+	<bean id="dataBaseConnectionInfoReal" class="ems.member.DataBaseConnectionInfo">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@111.222.3.4:5555:xe" />
+		<property name="userId" value="ccc" />
+		<property name="userPw" value="ddd" />
+	</bean>
+
+</beans>

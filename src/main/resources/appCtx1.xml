@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 		
+ 	
+ 	<!-- ApplicationContext(스프링 설정파일)분리하기 1번째 파일, DAO와 Service객체 모아서 분리 -->
+
+	<bean id="studentDAO" class="ems.member.dao.StudentDAO"></bean>
+	
+	<bean id="registerService" class="ems.member.service.StudentRegisterService">
+		<constructor-arg ref="studentDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="modifyService" class="ems.member.service.StudentModifyService">
+		<constructor-arg ref="studentDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="deleteService" class="ems.member.service.StudentDeleteService">
+		<constructor-arg ref="studentDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="selectService" class="ems.member.service.StudentSelectService">
+		<constructor-arg ref="studentDAO"></constructor-arg>
+	</bean>
+	
+	<bean id="allSelectService" class="ems.member.service.StudentAllSelectService">
+		<constructor-arg ref="studentDAO"></constructor-arg>
+	</bean>
+	
+	
+</beans>
